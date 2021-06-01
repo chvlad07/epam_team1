@@ -1,0 +1,19 @@
+CREATE TABLE DATE_DIM (
+	PKey INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	ID VARCHAR(20),
+	Now_Date DATE,
+	European_Date CHAR(10),
+	American_Date CHAR(10),
+	Number_Day INT,
+	Number_day_of_week INT, 
+	Title_of_day VARCHAR(20),    
+	Number_day_of_year INT,
+	Number_week_in_year INT,
+	Number_week_in_month INT,
+	Number_Month INT,
+	Name_Month VARCHAR(20),
+	Number_Quarter INT,
+	Current_Year INT
+	);
+    
+
