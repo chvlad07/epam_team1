@@ -1,0 +1,39 @@
+DECLARE
+	@first_date DATETIME,
+	@last_date DATETIME
+SET @first_date = '1900-01-01'
+SET @last_date = '2100-12-31';
+
+WITH date_dim(now_date) AS  
+	(
+	SELECT
+		@first_date AS now_date
+	UNION ALL
+	SELECT
+		DATEADD(day, 1, now_date)
+	FROM
+		date_dim
+	WHERE
+		now_date < @last_date
+	)
+	
+INSERT INTO dbo.DATE_DIM
+SELECT
+    CONVERT(VARCHAR,now_date,112) AS ID,
+    now_date AS now_date,
+	FORMAT(now_date,'dd/MM/yyyy') AS European_date,
+	FORMAT(now_date,'MM/dd/yyyy') AS American_date,
+    DATEPART(DAY,now_date) AS "Day",
+	DATEPART(WEEKDAY,now_date) AS Number_Day,
+    DATENAME(WEEKDAY,now_date) AS Title_of_day,
+    DATEPART(DAYOFYEAR,now_date) AS Number_day_of_year,
+    DATEPART(WEEK,now_date) AS Number_week_in_year,
+    DATEPART(WEEK,now_date) + 1 - DATEPART(WEEK,CAST(DATEPART(MONTH,now_date) AS VARCHAR)
+                           + '/1/' + CAST(DATEPART(YEAR,now_date) AS VARCHAR)) AS Number_week_in_month,
+    DATEPART(MONTH,now_date) AS "Month",
+    DATENAME(MONTH,now_date) AS Name_Month,
+    DATEPART(QUARTER,now_date) AS Number_Quarter,   
+    DATEPART(YEAR,now_date) AS "Year"
+FROM
+	date_dim
+OPTION (MAXRECURSION 0);
