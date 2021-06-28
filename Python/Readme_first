@@ -1,6 +1,6 @@
 How to use:
 
-1. Run sql script 'create_database_northwind.sql' for creating database;
-2. Run sql script 'northwind_database.sql' for creating tables;
+1. Run sql script 'source/northwind_sql/create_database_northwind.sql' for creating database;
+2. Run sql script 'source/northwind_sql/northwind_database.sql' for creating tables;
 3. Change file 'config.txt' accodring to your computer/SSMS parameters;
 4. Run file 'main.py'.
