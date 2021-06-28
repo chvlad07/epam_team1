@@ -3,14 +3,17 @@ GO
 
 /****** Object:  Database [northwind]    Script Date: 1/15/2014 11:47:42 AM ******/
 CREATE DATABASE [northwind]
- CONTAINMENT = NONE
+
+ /*CONTAINMENT = NONE
  ON  PRIMARY 
 ( NAME = N'Northwind', FILENAME = N'D:\2\NORTHWND.MDF' , SIZE = 4992KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%)
  LOG ON 
 ( NAME = N'Northwind_log', FILENAME = N'D:\2\northwind_log.ldf' , SIZE = 3456KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%)
+*/
+
 GO
 
-ALTER DATABASE [northwind] SET COMPATIBILITY_LEVEL = 90
+ALTER DATABASE [northwind] SET COMPATIBILITY_LEVEL = 100
 GO
 
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
