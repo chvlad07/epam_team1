@@ -1,0 +1,4 @@
+DRIVER={SQL + Server}
+SERVER=EPUALVIW01DC
+DATABASE=northwind
+Trusted_Connection=yes
