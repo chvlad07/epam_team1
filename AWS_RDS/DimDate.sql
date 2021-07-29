@@ -3,6 +3,7 @@ SET @last_date = '2100-12-31';
 SET SESSION cte_max_recursion_depth = 1000000; 
 
 INSERT INTO DimDate
+
 WITH RECURSIVE date_dim(now_date) AS  
 	(
 	SELECT
@@ -18,10 +19,10 @@ WITH RECURSIVE date_dim(now_date) AS
     
     SELECT
     now_date AS CurrentDate,
-    FORMAT(now_date,'dd/MM/yyyy') AS EuropeanDate,
-    FORMAT(now_date,'MM/dd/yyyy') AS AmericanDate,
+	DATE_FORMAT(now_date,"%D,%M,%Y") AS EuropeanDate,
+	DATE_FORMAT(now_date,"%M,%D,%Y") AS AmericanDate,
     DAY(now_date) AS NumberDay,
-    WEEKDAY(now_date) AS NumberDayOfWeek,
+	WEEKDAY(now_date) AS NumberDayOfWeek,
     DAYNAME(now_date) AS TitleOfDay,
     DAYOFYEAR(now_date) AS NumberDayOfYear,
     WEEK(now_date) AS NumberWeekInYear,
@@ -35,3 +36,5 @@ FROM
 	date_dim;
 
 SELECT * FROM DimDate
+
+
