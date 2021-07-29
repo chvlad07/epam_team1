@@ -2,7 +2,7 @@ SET @first_date = '1970-01-01';
 SET @last_date = '2100-12-31';
 SET SESSION cte_max_recursion_depth = 1000000; 
 
-
+INSERT INTO DimDate
 WITH RECURSIVE date_dim(now_date) AS  
 	(
 	SELECT
