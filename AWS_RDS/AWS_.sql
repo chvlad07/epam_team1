@@ -4,8 +4,8 @@ USE aws_northwind;
 
 CREATE TABLE DimDate (
   CurrentDate date NOT NULL,
-  EuropeanDate CHAR(10),
-  AmericanDate CHAR(10),
+  EuropeanDate CHAR(20),
+  AmericanDate CHAR(20),
   NumberDay TINYINT,
   NumberDayOfWeek TINYINT, 
   TitleOfDay VARCHAR(15),    
@@ -126,16 +126,10 @@ CREATE TABLE FactOrder(
     CONSTRAINT FK_SHD_ID FOREIGN KEY(ShipperDate) REFERENCES DimDate(CurrentDate)
     );
     
-    
-    drop database aws_northwind;
+    /**Drop database if you need**/-->
+    /**drop database aws_northwind;**/
 
 
 
-select * from DimSupplier;
 
-select * from DimProduct;
-
-select * from DimEmployee;
-
-select * from FactOrder;
 
